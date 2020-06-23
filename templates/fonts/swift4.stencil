@@ -3,12 +3,13 @@
 
 {% if families %}
 {% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+{% set fontType %}{{param.fontTypeName|default:"Font"}}{% endset %}
 #if os(OSX)
   import AppKit.NSFont
-  {{accessModifier}} typealias Font = NSFont
+  {{accessModifier}} typealias {{fontType}} = NSFont
 #elseif os(iOS) || os(tvOS) || os(watchOS)
   import UIKit.UIFont
-  {{accessModifier}} typealias Font = UIFont
+  {{accessModifier}} typealias {{fontType}} = UIFont
 #endif
 
 // swiftlint:disable superfluous_disable_command
@@ -48,8 +49,8 @@
   {{accessModifier}} let family: String
   {{accessModifier}} let path: String
 
-  {{accessModifier}} func font(size: CGFloat) -> Font! {
-    return Font(font: self, size: size)
+  {{accessModifier}} func font(size: CGFloat) -> {{fontType}}! {
+    return {{fontType}}(font: self, size: size)
   }
 
   {{accessModifier}} func register() {
@@ -64,7 +65,7 @@
   }
 }
 
-{{accessModifier}} extension Font {
+{{accessModifier}} extension {{fontType}} {
   convenience init!(font: FontConvertible, size: CGFloat) {
     #if os(iOS) || os(tvOS) || os(watchOS)
     if !UIFont.fontNames(forFamilyName: font.family).contains(font.name) {
