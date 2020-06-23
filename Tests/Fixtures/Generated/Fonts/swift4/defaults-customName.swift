@@ -3,10 +3,10 @@
 
 #if os(OSX)
   import AppKit.NSFont
-  internal typealias Font = NSFont
+  internal typealias MyFont = NSFont
 #elseif os(iOS) || os(tvOS) || os(watchOS)
   import UIKit.UIFont
-  internal typealias Font = UIFont
+  internal typealias MyFont = UIFont
 #endif
 
 // swiftlint:disable superfluous_disable_command
@@ -67,8 +67,8 @@ internal struct FontConvertible {
   internal let family: String
   internal let path: String
 
-  internal func font(size: CGFloat) -> Font! {
-    return Font(font: self, size: size)
+  internal func font(size: CGFloat) -> MyFont! {
+    return MyFont(font: self, size: size)
   }
 
   internal func register() {
@@ -83,7 +83,7 @@ internal struct FontConvertible {
   }
 }
 
-internal extension Font {
+internal extension MyFont {
   convenience init!(font: FontConvertible, size: CGFloat) {
     #if os(iOS) || os(tvOS) || os(watchOS)
     if !UIFont.fontNames(forFamilyName: font.family).contains(font.name) {
