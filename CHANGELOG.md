@@ -17,7 +17,10 @@ _None_
 
 ### New Features
 
-_None_
+* Fonts: the templates now support a new `fontTypeName` that you can use to change the `typealias`'s name from `Font` to something else. For example: this is useful when working with SwiftUI which already defines a `Font` type.  
+  [David Jennes](https://github.com/djbe)
+  [#647](https://github.com/SwiftGen/SwiftGen/issue/647)
+  [#728](https://github.com/SwiftGen/SwiftGen/pull/728)
 
 ### Bug Fixes
 
