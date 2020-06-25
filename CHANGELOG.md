@@ -17,7 +17,10 @@ _None_
 
 ### New Features
 
-_None_
+* XCassets: image assets now load faster on macOS if they're in the `main` bundle. MacOS only provides a caching mechanism for images in the `main` bundle, for other cases you may need to provide your own caching mechanism as needed.  
+  [David Jennes](https://github.com/djbe)
+  [#648](https://github.com/SwiftGen/SwiftGen/issues/648)
+  [#733](https://github.com/SwiftGen/SwiftGen/pull/733)
 
 ### Bug Fixes
 
@@ -29,7 +32,7 @@ _None_
   [@fjtrujy](https://github.com/fjtrujy)
 * Avoid breaking the system swift installation when installing SwiftGen via Homebrew on macOS 10.14.4 or higher.  
   [David Jennes](https://github.com/djbe)
-  [#686](https://github.com/SwiftGen/SwiftGen/issue/686)
+  [#686](https://github.com/SwiftGen/SwiftGen/issues/686)
   [#730](https://github.com/SwiftGen/SwiftGen/pull/730)
 
 ### Internal Changes
